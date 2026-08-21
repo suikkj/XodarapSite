@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Xodarap</title>
+    <link rel="icon" type="image/png" href="/icon/icon.png">
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- 1. ADICIONE ESTE BLOCO DE SCRIPT -->
+    <script>
+        // Passa as variáveis do servidor para o JavaScript do lado do cliente
+        window.SUPABASE_CONFIG = {
+            URL: "<%= SUPABASE_URL %>",
+            ANON_KEY: "<%= SUPABASE_ANON_KEY %>"
+        };
+    </script>
+</head>
+<body class="login-page-body">
+    <div class="login-container">
+        <div class="form-container">
+
+            <!-- Formulário de Login Unificado (o único que deve ser usado) -->
+            <form id="loginForm" class="auth-form">
+                <h2>Acessar Terminal</h2>
+                <div class="input-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required placeholder="seu@email.com">
+                </div>
+                <div class="input-group">
+                    <label for="loginPassword">Senha</label>
+                    <input type="password" id="loginPassword" required placeholder="Sua senha">
+                </div>
+                <p id="loginError" class="error-message"></p>
+                <button type="submit" class="cta-button">Entrar</button>
+                <p class="form-switcher">Não possui um registro? <a href="#" id="showRegister">Crie um agora.</a></p>
+            </form>
+
+            <!-- Formulário de Registro -->
+            <form id="registerForm" class="auth-form" style="display: none;">
+                <h2>Criar Registro</h2>
+                <div class="input-group">
+                    <label for="registerUsername">Nome de Usuário</label>
+                    <input type="text" id="registerUsername" required placeholder="Como devemos te chamar?">
+                </div>
+                <div class="input-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required placeholder="seu@email.com">
+                </div>
+                <div class="input-group">
+                    <label for="registerPassword">Senha</label>
+                    <input type="password" id="registerPassword" required placeholder="Crie uma senha forte">
+                </div>
+                <div class="input-group">
+                    <label for="registerConfirmPassword">Confirmar Senha</label>
+                    <input type="password" id="registerConfirmPassword" required placeholder="Confirme sua senha">
+                </div>
+                <p id="registerMessage" class="error-message"></p>
+                <button type="submit" class="cta-button">Registrar</button>
+                <p class="form-switcher">Já possui um registro? <a href="#" id="showLogin">Acesse o terminal.</a></p>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Scripts no final do body -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/auth.js"></script>
+</body>
+</html>

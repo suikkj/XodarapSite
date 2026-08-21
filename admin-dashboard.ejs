@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Administração | Xodarap</title>
+    <link rel="icon" type="image/png" href="/icon/icon.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/dashboard_style.css">
+    <link rel="stylesheet" href="/admin_style.css">
+
+    <script>
+        // Passa as variáveis do servidor para o JavaScript do lado do cliente
+        window.SUPABASE_CONFIG = {
+            URL: "<%= SUPABASE_URL %>",
+            ANON_KEY: "<%= SUPABASE_ANON_KEY %>"
+        };
+    </script>
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <a href="/admin/dashboard" class="logo">XODARAP (Admin)</a>
+            <nav class="sidebar-nav">
+                <a href="#conta" class="active"><i class="fas fa-user-circle"></i> Sua Conta</a>
+                <a href="#documentos"><i class="fas fa-file-alt"></i> Documentos</a>
+                <a href="#projetos"><i class="fas fa-tasks"></i> Projetos</a>
+                <a href="#chat"><i class="fas fa-comments"></i> Chat</a>
+                <a href="#arquivos-confidenciais"><i class="fas fa-folder-open"></i> Arquivos Confidenciais</a>
+                <a href="#administracao"><i class="fas fa-user-shield"></i> Administração</a>
+                <a href="#" id="logout-button"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </nav>
+            <div class="sidebar-footer">
+                <p>© 2015 Xodarap</p>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <!-- O conteúdo dinâmico do admin será carregado aqui -->
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/admin-dashboard.js"></script>
+</body>
+</html>
